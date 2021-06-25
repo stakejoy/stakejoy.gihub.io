@@ -331,6 +331,15 @@ header {
     margin-bottom: 0;
 }
 .about-sec .text-box a{
+    text-decoration: none;
+    color:rgba(63, 63, 63, 0.96);
+    font-weight: bolder;
+}
+.about-sec .text-box a:hover{
+    color:rgb(112,33,126);
+}
+
+.about-sec .text-box a.btn-default{
     width: 230px;
     height: 55px;
     border-radius: 5px;
