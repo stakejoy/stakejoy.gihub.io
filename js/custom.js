@@ -55,16 +55,30 @@ $(function () {
 // Personally i think 1000 is too much
 // Try 800 or below, it seems not too much but it will make a difference
 
-
 var start = 4721245;
-var speed = 70;
-$(document).ready(function () {
-    go();
-    setInterval(function () {
-        go();
+var speed = 5000;
+
+document.addEventListener("DOMContentLoaded", async (event) => { 
+
+    await get_info();
+    setInterval(async function () {
+        await get_info();
     }, speed);
 });
-function go() {
-    $(".counter").html(start.toFixed(0));
-    start += 0.125;
-}
+
+async function get_info() {
+    let res = await fetch("https://api.stakejoy.com/block_info");
+    if (res.ok) {
+        let {block_height, staked_count, oracle_price} = await res.json();
+    
+        console.log(block_height);
+        var total_hnt = staked_count * 10000;
+        var total_usd = parseFloat((staked_count * 10000 * (oracle_price / 100000000)).toFixed(0));
+        $("#total_staked").html(staked_count.toLocaleString('en'));
+        $("#total_usd").html(`$${total_usd.toLocaleString('en')}`);
+        $("#total_hnt").html(total_hnt.toLocaleString('en'));
+    }
+
+    // $(".counter").html(start.toFixed(0));
+    // start += 0.125;
+};
