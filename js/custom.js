@@ -51,11 +51,6 @@ $(function () {
     });
 });
 
-// Change the speed to whatever you want
-// Personally i think 1000 is too much
-// Try 800 or below, it seems not too much but it will make a difference
-
-var start = 4721245;
 var speed = 5000;
 
 document.addEventListener("DOMContentLoaded", async (event) => { 
@@ -78,7 +73,4 @@ async function get_info() {
         $("#total_usd").html(`$${total_usd.toLocaleString('en')}`);
         $("#total_hnt").html(total_hnt.toLocaleString('en'));
     }
-
-    // $(".counter").html(start.toFixed(0));
-    // start += 0.125;
 };
