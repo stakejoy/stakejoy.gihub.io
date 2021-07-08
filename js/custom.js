@@ -74,7 +74,7 @@ async function get_info() {
         $("#total_staked").html(staked_count.toLocaleString('en'));
         $("#total_usd").html(`$${total_usd.toLocaleString('en')}`);
         $("#total_hnt").html(total_hnt.toLocaleString('en'));
-        $("#total_rewards").html(total_earned.toLocaleString('en'));
+        $("#total_rewards").html(`$${total_earned.toLocaleString('en')}`);
     }
     }
 };
