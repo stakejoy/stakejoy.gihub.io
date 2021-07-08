@@ -64,13 +64,17 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 async function get_info() {
     let res = await fetch("https://api.stakejoy.com/block_info");
     if (res.ok) {
-        let {block_height, staked_count, oracle_price} = await res.json();
+        let {block_height, staked_count, oracle_price, total_rewards} = await res.json();
     
         console.log(block_height);
+        var price = oracle_price / 100000000;
         var total_hnt = staked_count * 10000;
-        var total_usd = parseFloat((staked_count * 10000 * (oracle_price / 100000000)).toFixed(0));
+        var total_usd = parseFloat((staked_count * 10000 * price).toFixed(0));
+        var total_earned = parseFloat(((total_rewards / 100000000) * price).toFixed(0));
         $("#total_staked").html(staked_count.toLocaleString('en'));
         $("#total_usd").html(`$${total_usd.toLocaleString('en')}`);
         $("#total_hnt").html(total_hnt.toLocaleString('en'));
+        $("#total_rewards").html(total_earned.toLocaleString('en'));
+    }
     }
 };
