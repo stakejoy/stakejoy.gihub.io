@@ -66,7 +66,7 @@ async function get_info() {
     if (res.ok) {
         let {block_height, staked_count, oracle_price, total_rewards} = await res.json();
     
-        console.log(block_height);
+        console.log(total_rewards);
         var price = oracle_price / 100000000;
         var total_hnt = staked_count * 10000;
         var total_usd = parseFloat((staked_count * 10000 * price).toFixed(0));
