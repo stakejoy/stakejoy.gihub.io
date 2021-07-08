@@ -76,5 +76,4 @@ async function get_info() {
         $("#total_hnt").html(total_hnt.toLocaleString('en'));
         $("#total_rewards").html(`$${total_earned.toLocaleString('en')}`);
     }
-    }
 };
