@@ -120,7 +120,6 @@ img {
 
 /*********** HEADER ******/
 header {
-    background-color: rgba(24,17,65, 0.8);
     padding: 33px 0;
     position: absolute;
     top: 0;
@@ -408,6 +407,24 @@ header {
 .btn-default:hover{
     color: #fff;
 }
+
+.btn-outline{
+    color: #ededed;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 5px;
+    border: 1px solid #da0e83;
+    width: 230px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 59px;
+}
+.btn-outline:hover{
+    color: #fff;
+}
+
 .how-work-right{
     display: flex;
     align-items: center;
